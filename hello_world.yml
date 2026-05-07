@@ -2,8 +2,6 @@
 - name: Hello World Test for Linux
   hosts: all
   gather_facts: yes
-  vars:
-    myvar: "Banana" 
   tasks:
     - name: Say Hello
       ansible.builtin.debug:
