@@ -1,6 +1,7 @@
 ---
 - name: Gather facts and print IP address
   hosts: all
+  remote_user: nlovei 
   gather_facts: true  # This must be true to collect facts
 
   tasks:
