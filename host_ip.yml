@@ -10,5 +10,5 @@
 
     - name: Print the secret
       ansible.builtin.debug:
-        msg: "My secrets are {{ my_github_token }}" 
+        msg: "My secrets are {{ vault_secret_output }}" 
 
