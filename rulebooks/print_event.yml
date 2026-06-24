@@ -1,0 +1,8 @@
+---
+- name: Log Chatty Event
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Print confirmation message
+      ansible.builtin.debug:
+        msg: "Event received and processed successfully."
