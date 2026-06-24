@@ -4,11 +4,11 @@
   sources:
     - ansible.eda.url_check:
         urls:
-          - "http://13.62.54.189:8000"  # Or any internal/external URL
-        delay: 1                 # Polls every 1 second to maximize traffic
+          - "http://13.62.64.189:8000"
+        delay: 1
   rules:
-    - name: Handle HTTP Up State
+    - name: Log Chatty Event to Console
       condition: event.url_check.status == "up"
       action:
-        run_playbook:
-          name: print_event.yml
+        debug:
+          msg: "Event received! Connection to EC2 is healthy."
