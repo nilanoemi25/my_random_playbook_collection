@@ -1,14 +1,14 @@
 ---
-- name: Continuous Lab Saturation Source
+- name: Saturated Control Plane Source
   hosts: all
   sources:
     - ansible.eda.url_check:
         urls:
-          - "http://13.62.64.189:8000"
-        delay: 1
+          - "http://127.0.0.1:8000"  # Target itself locally
+        delay: 0.1                  # 10 pings per second (CRITICAL: this floods the Redis queue!)
   rules:
-    - name: Catch Every Single Ping
-      condition: event.url_check.status == "up" # <--- Fires on absolutely any response
+    - name: Flood Queue
+      condition: event.url_check is defined
       action:
         debug:
-          msg: "Boom! We hooked an event from AWS!"
+          msg: "Flooding local queue..."
