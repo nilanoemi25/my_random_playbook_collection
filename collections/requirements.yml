@@ -1,2 +1,3 @@
 ---
-collections: []
+collections:
+  - name: myfake.test_collection
